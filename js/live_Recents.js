@@ -143,7 +143,8 @@ URLDecode : function (string) {
         };
 
 
-var _rcnamespace = "0|4|10|12|14|1600|1602";
+//var _rcnamespace = "0|4|10|12|14|1600|1602";
+var _rcnamespace = "0|4|10|12|14";
 //윈도우 사이즈에 따라 변경을 할지 않할 지 체크한다.
 var isAllowRequestList = true;
 //매개 변수 parent는 ul태그여야 합니다
@@ -181,7 +182,7 @@ function ShowAjaxRecentList(parent)
 			for(var i = 0 ; i < res.query.recentchanges.length ; i++)
 			{
 				var item = res.query.recentchanges[i];
-        html += '<li><a class="recent-item" href = "/wiki/' + encodeURIComponent(item.title) + '" title="' + item.title +'">';
+        html += '<li><a class="recent-item" href = "/' + encodeURIComponent(item.title) + '" title="' + item.title +'">';
 				var timestamp = item.timestamp;
 				var timeStartIdx = timestamp.indexOf("T") + 1;
 				var time = timestamp.substr(timeStartIdx,timestamp.length- timeStartIdx - 1);
@@ -248,14 +249,16 @@ jQuery( function ( $ ) {
     $("#liberty-recent-tab1").click(function(e){
         $(this).addClass('active');
         $("#liberty-recent-tab2").removeClass('active');
-        _rcnamespace = "0|4|10|12|14|1600";
+        //_rcnamespace = "0|4|10|12|14|1600";
+        _rcnamespace = "0|4|10|12|14";
         ShowAjaxRecentList($("#live-recent-list"));
     });
 
     $("#liberty-recent-tab2").click(function(e){
         $(this).addClass('active');
         $("#liberty-recent-tab1").removeClass('active');
-        _rcnamespace = "1|3|5|7|9|11|13|15|2600|1601|1063";
+        //_rcnamespace = "1|3|5|7|9|11|13|15|2600|1601|1063";
+        _rcnamespace = "1|3|5|7|9|11|13|15";
         ShowAjaxRecentList($("#live-recent-list"));
     });
 } );

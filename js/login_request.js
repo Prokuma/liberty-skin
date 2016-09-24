@@ -1,6 +1,6 @@
 function LoginManage(lasturl) {
     try {
-        var url = '/wiki/' + lasturl;
+        var url = '/' + lasturl;
         $.ajax({
             url: '/api.php',
             type: 'post',

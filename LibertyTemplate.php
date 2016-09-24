@@ -20,14 +20,7 @@ class LibertyTemplate extends BaseTemplate {
                 <div class="liberty-right-fixed">
                     <?php $this->live_recent(); ?>
                 </div>
-                <div class="right-ads">
-                    <ins class="adsbygoogle"
-                        style="display:block; min-width: 15rem; width: 100%;"
-                        data-ad-client="ca-pub-9526107750460253"
-                        data-ad-slot="6581447128"
-                        data-ad-format="auto">
-                    </ins>
-                </div>
+
             </div>
             <div class="container-fluid liberty-content">
                 <div class="liberty-content-header">
@@ -39,14 +32,6 @@ class LibertyTemplate extends BaseTemplate {
                             <?php $this->html( 'sitenotice' ) ?>
                         </div>
                     <?php } ?>
-                    <div class="header-ads">
-                        <ins class="adsbygoogle"
-                            style="display:block; min-width:20rem; width:100%;"
-                            data-ad-client="ca-pub-9526107750460253"
-                            data-ad-slot="3627980722"
-                            data-ad-format="auto">
-                        </ins>
-                    </div>
                     <?php $this->contents_toolbox(); ?>
                     <div class="title">
                         <h1>
@@ -60,9 +45,9 @@ class LibertyTemplate extends BaseTemplate {
                 <div class="liberty-content-main">
                     <?php if ( $title->getNamespace() != NS_SPECIAL && $action != "edit" && $action != "history") { ?>
                         <div class="social-buttons">
-                            <div class="google" data-url="https://librewiki.net/wiki/<?php $this->html( 'title' ) ?>" data-text="<?php $this->html( 'title' ) ?>" title="구글플러스"><div><i class="fa fa-google-plus"></i></div></div>
-                            <div class="twitter" data-url="https://librewiki.net/?curid=<?=$curid;?>" data-text="[<?php $this->html( 'title' ) ?>]%0A" title="트위터"><div><i class="fa fa-twitter"></i></div></div>
-                            <div class="facebook" data-url="https://librewiki.net/wiki/<?php $this->html( 'title' ) ?>" data-text="<?php $this->html( 'title' ) ?>" title="페이스북"><div><i class="fa fa-facebook"></i></div></div>
+                            <div class="google" data-url="http://study.prokuma.kr/<?php $this->html( 'title' ) ?>" data-text="<?php $this->html( 'title' ) ?>" title="구글플러스"><div><i class="fa fa-google-plus"></i></div></div>
+                            <div class="twitter" data-url="http://study.prokuma.kr/<?php $this->html( 'title' ) ?>" data-text="[<?php $this->html( 'title' ) ?>]%0A" title="트위터"><div><i class="fa fa-twitter"></i></div></div>
+                            <div class="facebook" data-url="http://study.prokuma.kr/<?php $this->html( 'title' ) ?>" data-text="<?php $this->html( 'title' ) ?>" title="페이스북"><div><i class="fa fa-facebook"></i></div></div>
                         </div>
                     <?php } ?>
                     <?php if ( $this->data['catlinks'] ) {
@@ -92,7 +77,7 @@ class LibertyTemplate extends BaseTemplate {
     function nav_menu() {
     ?>
     <nav class="navbar navbar-dark">
-        <a class="navbar-brand" href="/"></a>
+        <a class="navbar-brand" href="/index.php"></a>
         <ul class="nav navbar-nav">
             <li class="nav-item">
                 <?=Linker::linkKnown( SpecialPage::getTitleFor( 'Recentchanges', null ), '<span class="fa fa-refresh"></span><span class="hide-title">최근바뀜</span>', array( 'class' => 'nav-link', 'title' => '최근 변경 문서를 불러옵니다. [alt+shift+r]', 'accesskey' => 'r') ); ?>
@@ -101,19 +86,10 @@ class LibertyTemplate extends BaseTemplate {
                 <?=Linker::linkKnown( SpecialPage::getTitleFor( 'Randompage', null ), '<span class="fa fa-random"></span><span class="hide-title">임의문서</span>', array( 'class' => 'nav-link', 'title' => '임의 문서를 불러옵니다. [alt+shift+x]', 'accesskey' => 'x' ) ); ?>
             </li>
             <li class="nav-item dropdown">
-                <span class="nav-link dropdown-toggle dropdown-toggle-fix" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="게시판에 접속합니다."><span class="fa fa-comments"></span><span class="hide-title">게시판</span></span>
-                <div class="dropdown-menu" role="menu">
-					<a class="dropdown-item" href="https://bbs.librewiki.net/wiki">위키방</a>
-					<a class="dropdown-item" href="https://bbs.librewiki.net/coop">조합게시판</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
                 <?php echo Linker::linkKnown( SpecialPage::getTitleFor( 'Specialpages', null ), '<span class="fa fa-gear"></span><span class="hide-title">도구</span>', array( 'class' => 'nav-link dropdown-toggle dropdown-toggle-fix', 'data-toggle' => 'dropdown', ' role' => 'button', 'aria-haspopup' => 'true', 'aria-expanded' => 'false', 'title' => '도구를 보여줍니다.') ); ?>
                 <div class="dropdown-menu" role="menu">
                     <?=Linker::linkKnown( SpecialPage::getTitleFor( 'SpecialPages', null ), '특수 문서 목록', array( 'class' => 'dropdown-item', 'title' => '특수 문서 목록을 불러옵니다. [alt+shift+q]', 'accesskey' => 'q') ); ?>
                     <?=Linker::linkKnown( SpecialPage::getTitleFor( 'upload', null ), '업로드', array( 'class' => 'dropdown-item', 'title' => '파일을 올립니다. [alt+shift+g]', 'accesskey' => 'g') ); ?>
-                    <a class="dropdown-item" href="https://maps.librewiki.net">리브레 맵스</a>
-	                <a class="dropdown-item" href="https://issue.librewiki.net/">이슈 트래커</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -293,7 +269,7 @@ class LibertyTemplate extends BaseTemplate {
                             echo Linker::linkKnown( $companionTitle, $titlename, array( 'class' => 'btn btn-secondary tools-btn', 'title' => $titlename.'을 불러옵니다. [alt+shift+t]', 'accesskey' => 't') );
                         }
                     ?>
-                    <?=Linker::linkKnown( $title, '기록', array( 'class' => 'btn btn-secondary tools-btn', 'title' => '문서의 편집 기록을 불러옵니다. [alt+shift+h]', 'accesskey' => 'h' ), array( 'action' => 'history' ) ); ?>
+                    <?=Linker::linkKnown( $title, '역사', array( 'class' => 'btn btn-secondary tools-btn', 'title' => '문서의 편집 기록을 불러옵니다. [alt+shift+h]', 'accesskey' => 'h' ), array( 'action' => 'history' ) ); ?>
                     <button type="button" class="btn btn-secondary tools-btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                         <span class="caret"></span>
                     </button>
