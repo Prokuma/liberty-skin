@@ -8,8 +8,8 @@ class SkinLiberty extends SkinTemplate {
     public function initPage( OutputPage $out ) {
         parent::initPage( $out );
         $out->addMeta( 'viewport', 'width=device-width, initial-scale=1, maximum-scale=1' );
-        $out->addMeta( 'description', 'librewiki' );
-        $out->addMeta( 'keywords', 'wiki,librewiki,리브레위키,리브레 위키,' . $this->getSkin()->getTitle() );
+        $out->addMeta( 'description', 'studywiki' );
+        $out->addMeta( 'keywords', 'wiki,studywiki,스터디위키,스터디 위키,' . $this->getSkin()->getTitle() );
 		
 		/* IOS 기기 및 모바일 크롬에서의 웹앱 옵션 켜기 및 상단바 투명화 */
 		$out->addMeta('apple-mobile-web-app-capable', 'Yes');
